@@ -25,7 +25,7 @@ class App extends React.Component {
 
   //event handler
   addItem(event) {
-    if(this._inputElement.value != ""){
+    if(this._inputElement.value !== ""){
       //new list object/item
       let newItem = {
         text: this._inputElement.value,
@@ -33,7 +33,7 @@ class App extends React.Component {
         id: index
       };
 
-      if (this.state.listType == 2) {
+      if (this.state.listType === 2) {
         this.getSelectedList(0);
       }
 
@@ -60,10 +60,10 @@ class App extends React.Component {
   checkItem(id) {
     let filteredList = this.state.items;
     let checkedIndex = filteredList.findIndex(function(items){
-      return items.id == id;
+      return items.id === id;
     });
 
-    if(filteredList[checkedIndex].done == false){
+    if(filteredList[checkedIndex].done === false){
       filteredList[checkedIndex].done = true;
     }else{
       filteredList[checkedIndex].done = false;
@@ -79,10 +79,10 @@ class App extends React.Component {
     console.log("this got called with type: " + type);
     //filter list based on if it is marked as done
     let filteredList = this.state.items.filter(function(item) { 
-        return (item.done != true);}
+        return (item.done !== true);}
     );
 
-    if(this.state.listType != 2){
+    if(this.state.listType !== 2){
       this.setState({
         items: filteredList,
         currentItems: filteredList
@@ -106,7 +106,7 @@ class App extends React.Component {
     const cmpltBttn = document.getElementById("three");
 
     //show all list items
-    if(listType == 0){
+    if(listType === 0){
       console.log("all");
       currList = this.state.items;
       type = 0;
@@ -116,9 +116,9 @@ class App extends React.Component {
       actvBttn.style.color = "#4D5693";
     }
     //show active list items
-    else if(listType == 1){
+    else if(listType === 1){
       currList = this.state.items.filter(function(item) { 
-        return (item.done != true);}
+        return (item.done !== true);}
       );
       type = 1;
       //set color according to the user selection
@@ -128,9 +128,9 @@ class App extends React.Component {
       console.log("active");
     }
     //show completed list items
-    else if(listType == 2){
+    else if(listType === 2){
       currList = this.state.items.filter(function(item) { 
-        return (item.done == true);}
+        return (item.done === true);}
       );
       //set color according to the user selection
       type = 2;

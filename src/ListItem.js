@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Icon from '@material-ui/core/Icon';
 import './App.css';
 
@@ -22,7 +21,7 @@ class ListItems extends React.Component {
     }
 
     getClass(bool){
-        if(bool == false){
+        if(bool === false){
             return "unchecked";
         }
         else{
